@@ -1,0 +1,12 @@
+<suite name="HOOQ Automation Practice TestSuite" thread-count="1" parallel="tests">
+	<listeners>
+        <listener class-name="com.reporter.ExtentTestNGIReporterListener" />
+    </listeners>
+	<test verbose="2" name="HOOQ Automation Practice Validations" annotations="JDK" parallel="classes">		
+		<classes>
+			<class name="com.tests.HOOQAutomationPracticeTest" />
+		</classes>
+	</test>
+</suite>
+	
+		
