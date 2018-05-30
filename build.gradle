@@ -43,7 +43,7 @@ task integrationTest(type: Test) {
    	reports.html.enabled = false
 }
 
-task executeTest(type: Test) {
+task executeTests(type: Test) {
 	ignoreFailures = true
 	testLogging {
 	        showStandardStreams = true
