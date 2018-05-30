@@ -3,49 +3,49 @@
     {
       "email": "jaggu.souj@gmail.com",
       "password": "Souj@2322",
-      "testType":"positiveAPI",
-      "errorMsg": ""
+      "testType":"positive",
+      "errorMsg": "NA"
     },
      {
      "email": "",
-      "password": "",
-      "testType":"negativeAPI",
+      "password": " ",
+      "testType":"negative",
       "errorMsg": "An email address required."
     },
      {
       "email": "jaggu.souj@gmail.com",
-      "password": "",
-      "testType":"negativeAPI",
+      "password": " ",
+      "testType":"negative",
       "errorMsg": "Password is required."
     },
      {
-      "email": "",
+      "email": " ",
       "password": "Souj@2322",
-      "testType":"negativeAPI",
+      "testType":"negative",
       "errorMsg": "An email address required."
     },
      {
       "email": "jaggu.soujsddsfd@gmail.com",
       "password": "Souj@2322",
-      "testType":"negativeAPI",
+      "testType":"negative",
       "errorMsg": "Authentication failed."
     },
      {
       "email": "jaggu.souj@gmail.com",
       "password": "Soudfdgdfgj@2322",
-      "testType":"negativeAPI",
+      "testType":"negative",
       "errorMsg": "Authentication failed."
     },
      {
       "email": "jaggu.souj@",
       "password": "Souj@2322",
-      "testType":"negativeAPI",
+      "testType":"negative",
       "errorMsg": "Invalid email address."
     },
      {
       "email": "jaggu",
       "password": "Souj@2322",
-      "testType":"negativeAPI",
+      "testType":"negative",
       "errorMsg": "Invalid email address."
     }
   ]

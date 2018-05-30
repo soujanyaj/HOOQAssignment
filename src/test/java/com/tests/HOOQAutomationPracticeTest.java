@@ -37,7 +37,7 @@ public class HOOQAutomationPracticeTest extends BaseTest {
 		
 		config.openURL(logFile);
 		config.clickSignIn(logFile);
-		config.login(logFile,email, password, testType, expectedErrorMsg);
+		config.login(logFile,email.split("_")[1], password.split("_")[1], testType.split("_")[1], expectedErrorMsg.split("_")[1]);
 		
 		if(testType.equals("positive"))
 			config.clickSignOut(logFile);
