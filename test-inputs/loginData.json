@@ -7,7 +7,7 @@
       "errorMsg": "NA"
     },
      {
-     "email": "",
+     "email": " ",
       "password": " ",
       "testType":"negative",
       "errorMsg": "An email address required."

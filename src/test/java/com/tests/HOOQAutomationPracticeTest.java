@@ -12,7 +12,7 @@ public class HOOQAutomationPracticeTest extends BaseTest {
 		testInitialize("core");
 	}
 
-	@Test
+	@Test (priority=2)
 	public static void signUpTests() {
 		String logFile = "signUpTests";
 		config.openURL(logFile);
@@ -31,19 +31,19 @@ public class HOOQAutomationPracticeTest extends BaseTest {
 		return new Object[][] { { "jaggu.souj@gmail.com", "Souj@2322"}};
 	}
 
-	@Test(dataProvider="loginData")
+	@Test(dataProvider="loginData", priority=1)
 	public static void loginTests(String email, String password, String testType, String expectedErrorMsg) {
 		String logFile = email + password + testType + expectedErrorMsg;
 		
 		config.openURL(logFile);
 		config.clickSignIn(logFile);
-		config.login(logFile,email.split("_")[1], password.split("_")[1], testType.split("_")[1], expectedErrorMsg.split("_")[1]);
-		
-		if(testType.equals("positive"))
+		config.login(logFile,email.split("_")[1].trim(), password.split("_")[1].trim(), testType.split("_")[1].trim(), expectedErrorMsg.split("_")[1].trim());
+		System.out.println("testType: "+testType);
+		if(testType.split("_")[1].trim().equals("positive"))
 			config.clickSignOut(logFile);
 	}
 
-	@Test(dataProvider="loginAPIData")
+	@Test(dataProvider="loginAPIData", priority=3)
 	public static void loginAPITests(String email, String password) {
 		String logFile = email + password ;
 		config.loginUsingAPI(logFile, email, password);
