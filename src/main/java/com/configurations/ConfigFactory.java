@@ -32,8 +32,8 @@ public class ConfigFactory {
 		case "core":
 			url = coreUrl;
 			config = new Core(url);
-			default:
-				break;
+		default:
+			break;
 		}
 		return config;
 

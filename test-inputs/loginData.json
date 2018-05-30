@@ -1,0 +1,52 @@
+{
+  "loginDataSet": [
+    {
+      "email": "jaggu.souj@gmail.com",
+      "password": "Souj@2322",
+      "testType":"positiveAPI",
+      "errorMsg": ""
+    },
+     {
+     "email": "",
+      "password": "",
+      "testType":"negativeAPI",
+      "errorMsg": "An email address required."
+    },
+     {
+      "email": "jaggu.souj@gmail.com",
+      "password": "",
+      "testType":"negativeAPI",
+      "errorMsg": "Password is required."
+    },
+     {
+      "email": "",
+      "password": "Souj@2322",
+      "testType":"negativeAPI",
+      "errorMsg": "An email address required."
+    },
+     {
+      "email": "jaggu.soujsddsfd@gmail.com",
+      "password": "Souj@2322",
+      "testType":"negativeAPI",
+      "errorMsg": "Authentication failed."
+    },
+     {
+      "email": "jaggu.souj@gmail.com",
+      "password": "Soudfdgdfgj@2322",
+      "testType":"negativeAPI",
+      "errorMsg": "Authentication failed."
+    },
+     {
+      "email": "jaggu.souj@",
+      "password": "Souj@2322",
+      "testType":"negativeAPI",
+      "errorMsg": "Invalid email address."
+    },
+     {
+      "email": "jaggu",
+      "password": "Souj@2322",
+      "testType":"negativeAPI",
+      "errorMsg": "Invalid email address."
+    }
+  ]
+}

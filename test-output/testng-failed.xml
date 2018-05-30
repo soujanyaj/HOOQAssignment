@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" parallel="tests" name="Failed suite [HOOQ Automation Practice TestSuite]">
+  <listeners>
+    <listener class-name="com.reporter.ExtentTestNGIReporterListener"/>
+  </listeners>
+  <test parallel="classes" name="HOOQ Automation Practice Validations(failed)">
+    <classes>
+      <class name="com.tests.HOOQAutomationPracticeTest">
+        <methods>
+          <include name="loginTests" invocation-numbers="0 1 2 3 4 5 6 7"/>
+          <include name="quitDriver"/>
+          <include name="initialization"/>
+        </methods>
+      </class> <!-- com.tests.HOOQAutomationPracticeTest -->
+    </classes>
+  </test> <!-- HOOQ Automation Practice Validations(failed) -->
+</suite> <!-- Failed suite [HOOQ Automation Practice TestSuite] -->

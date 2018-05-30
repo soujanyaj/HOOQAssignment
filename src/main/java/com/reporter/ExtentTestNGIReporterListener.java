@@ -23,16 +23,16 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.utils.Utils;
 
 // TODO: Auto-generated Javadoc
 /**
- * The listener interface for receiving extentTestNGIReporter events.
- * The class that is interested in processing a extentTestNGIReporter
- * event implements this interface, and the object created
- * with that class is registered with a component using the
- * component's <code>addExtentTestNGIReporterListener<code> method. When
- * the extentTestNGIReporter event occurs, that object's appropriate
- * method is invoked.
+ * The listener interface for receiving extentTestNGIReporter events. The class
+ * that is interested in processing a extentTestNGIReporter event implements
+ * this interface, and the object created with that class is registered with a
+ * component using the component's <code>addExtentTestNGIReporterListener<code>
+ * method. When the extentTestNGIReporter event occurs, that object's
+ * appropriate method is invoked.
  *
  * @see ExtentTestNGIReporterEvent
  */
@@ -56,8 +56,11 @@ public class ExtentTestNGIReporterListener implements IReporter {
 	/** The extent. */
 	public static ExtentReports extent;
 
-	/* (non-Javadoc)
-	 * @see org.testng.IReporter#generateReport(java.util.List, java.util.List, java.lang.String)
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see org.testng.IReporter#generateReport(java.util.List, java.util.List,
+	 * java.lang.String)
 	 */
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
 		init(suites.get(0).getName());
@@ -85,7 +88,8 @@ public class ExtentTestNGIReporterListener implements IReporter {
 	/**
 	 * Inits the.
 	 *
-	 * @param fileName the file name
+	 * @param fileName
+	 *            the file name
 	 */
 	private void init(String fileName) {
 
@@ -112,9 +116,12 @@ public class ExtentTestNGIReporterListener implements IReporter {
 	/**
 	 * Builds the test nodes.
 	 *
-	 * @param tests the tests
-	 * @param iTestNGMethod the i test NG method
-	 * @param status the status
+	 * @param tests
+	 *            the tests
+	 * @param iTestNGMethod
+	 *            the i test NG method
+	 * @param status
+	 *            the status
 	 */
 	private void buildTestNodes(IResultMap tests, ITestNGMethod iTestNGMethod, Status status) {
 		if (tests.size() > 0) {
@@ -135,13 +142,8 @@ public class ExtentTestNGIReporterListener implements IReporter {
 					else
 						((ExtentTest) subTest.get())
 								.fail("<font color=\"red\">" + "TEST FAILED: </font><font color=\"purple\"></font>");
-				
-					try {
-						((ExtentTest) subTest.get()).fail("Screenshot:");
-						((ExtentTest) subTest.get()).addScreenCaptureFromPath("../screenshot.png");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
+
+					
 				} else if (result.getStatus() == ITestResult.SKIP) {
 					if (result.getThrowable().getMessage() != null)
 						((ExtentTest) subTest.get())
@@ -152,12 +154,6 @@ public class ExtentTestNGIReporterListener implements IReporter {
 								.skip("<font color=\"red\">" + "TEST SKIPPED: </font><font color=\"purple\"></font>");
 				} else {
 					((ExtentTest) subTest.get()).pass("Test passed");
-					try {
-						((ExtentTest) subTest.get()).pass("Screenshot:");
-						((ExtentTest) subTest.get()).addScreenCaptureFromPath("../screenshot.png");
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
 
 				}
 
@@ -174,7 +170,19 @@ public class ExtentTestNGIReporterListener implements IReporter {
 					fileName = iTestNGMethod.getMethodName();
 				}
 				fileName = fileName.replaceAll("/", "+");
-			
+				File fileCheck = new File("./TestResultFiles/" + fileName + ".html");
+				if(fileCheck.exists())
+					((ExtentTest) subTest.get())
+						.info(Utils.returnFileContentAsString("./TestResultFiles/" + fileName + ".html"));
+				else
+					((ExtentTest) subTest.get()).info("Log is not generated as something went wrong with file creation");
+				
+				try {
+					((ExtentTest) subTest.get()).addScreenCaptureFromPath("Screenshots/" + fileName+"screenshot.png");
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+
 			}
 		}
 	}
@@ -196,7 +204,8 @@ public class ExtentTestNGIReporterListener implements IReporter {
 	/**
 	 * The main method.
 	 *
-	 * @param a the arguments
+	 * @param a
+	 *            the arguments
 	 */
 	public static void main(String a[]) {
 		getTimeStamp();
